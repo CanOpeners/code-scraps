@@ -1,0 +1,24 @@
+# Czujniki
+
+## BMP280
+| Nazwa na sensorze | Pin w Arduino |
+| ----------------- | ------------- |
+| VCC               | 3.3 V         |
+| GND               | GND           |
+| SCL               | SCL           |
+| SDA               | SDA           |
+
+## LM35
+| Nazwa na sensorze | Pin w Arduino |
+| ----------------- | ------------- |
+| Vcc               | 5 V           |
+| OUT               | A0            |
+| GND               | GND           |
+
+## DHT11
+| Nazwa na sensorze | Pin w Arduino |
+| ----------------- | ------------- |
+| Vcc               | 5 V           |
+| Data              | D0            |
+| NC                | not connected |
+| Ground            | GND           |

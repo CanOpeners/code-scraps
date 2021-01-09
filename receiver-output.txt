@@ -1,0 +1,24 @@
+The transmitter sends these lines every frame:
+1. Frame ID - an integer counting up from 1, increments each frame
+2. BMP280 Pressure [hPa] - float
+3. BMP280 Temperature [°C] - float
+4. LM35 Temperature [°C] - float
+5. DHT11 Temperature [°C] - float
+6. DHT11 Humidity [%] - float
+
+The receiver prints every frame it receives, each one beginning with the line '-- START' and ending with the line '-- END'. In between those lines are lines the transmitter sent.
+Additionally, before the lines from the transmitter, but after '-- START', there are two lines:
+1. RSSI - integer
+2. Frame size in bytes - integer
+
+Sample frame output from the receiver:
+-- START
+-104
+41
+73
+994.34
+21.08
+21.83
+21.50
+42.00
+-- END

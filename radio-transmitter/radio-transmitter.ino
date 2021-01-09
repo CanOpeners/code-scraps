@@ -43,44 +43,21 @@ void setup() {
   radio.begin();
 }
 
+int counter = 0;
+
 void loop() {
   double temp, pres;
 
   float lm35temp = lm35_raw_to_temperature(analogRead(lm35_pin));
 
-  /*SerialUSB.print("\x1b[31m[DHT11]\x1b[m: ");
-  SerialUSB.print("temp_degC=");
-  SerialUSB.print(dht11.readTemperature(), 2);
-  SerialUSB.print(" humidity_%=");
-  SerialUSB.println(dht11.readHumidity(), 2);*/
-
   bmp.measureTemperatureAndPressure(temp, pres);
 
-  /*SerialUSB.print("[BMP] Pressure = ");
-  SerialUSB.print(pres, 2);
-  SerialUSB.println(" hPa");
-  SerialUSB.print("[BMP] Temperature = ");
-  SerialUSB.print(temp, 2);
-  SerialUSB.println(" deg C");
-  SerialUSB.print("[LM35] Temperature = ");
-  SerialUSB.print(lm35temp, 2);
-  SerialUSB.println(" deg C\n");*/
-
-  frame.print("bmp_pres_hPa=");
-  frame.print(pres, 2);
-  frame.print('\n');
-  frame.print("bmp_temp_degC=");
-  frame.print(temp, 2);
-  frame.print('\n');
-  frame.print("lm35_temp_degC=");
-  frame.print(lm35temp, 2);
-  frame.print('\n');
-  frame.print("dht_temp_degC=");
-  frame.print(dht11.readTemperature(), 2);
-  frame.print('\n');
-  frame.print("dht_hum_pcent=");
-  frame.print(dht11.readHumidity(), 2);
-  frame.print('\n');
+  frame.println(++counter);
+  frame.println(pres, 2);
+  frame.println(temp, 2);
+  frame.println(lm35temp, 2);
+  frame.println(dht11.readTemperature(), 2);
+  frame.println(dht11.readHumidity(), 2);
 
   radio.transmit(frame);
   SerialUSB.println(frame);

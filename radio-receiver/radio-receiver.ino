@@ -28,14 +28,12 @@ void loop() {
   // receive data and save it to string
   radio.receive(data);
   
-  // get and print signal level (rssi)
-  SerialUSB.println("==========");
-  SerialUSB.print("RSSI=");
+  SerialUSB.println("-- START");
   SerialUSB.println(radio.get_rssi_last());
-  SerialUSB.print("Frame size: ");
-  SerialUSB.print(strlen(data));
-  SerialUSB.println(" / 255 bytes");
+  SerialUSB.println(strlen(data) + 1);
 
   // print received message
-  SerialUSB.println(data);
+  SerialUSB.print(data);
+
+  SerialUSB.println("-- END");
 }
